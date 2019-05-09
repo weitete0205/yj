@@ -1,0 +1,488 @@
+*{margin:0;padding:0;}
+.wrapper{
+    /* 详情页最外层大div */
+    width:1200px; 
+    margin:0 auto;
+}
+.navparent{
+    width:1200px;
+    height:100%;
+    background:#fbfdff;
+    position: relative;
+    margin: 20px 0 5px 0;
+}
+.navparent>:last-child{
+    position: absolute;
+    right:70px;
+    top:50px;
+}
+.navparent>:last-child>:nth-child(2){
+    display: inline-block;
+    margin:0 10px 0 10px;
+    padding: 0 10px 0 10px ;
+    border-right:1px solid black;
+    border-left:1px solid black;
+}
+.nav{
+    padding:5px 5px 5px 10px;
+    
+    width:220px;
+}
+.nav>a{
+    text-decoration:none;
+    color:#07c ;
+    /* 详情页顶部导航 */
+}
+.column{
+/* 商品及其地址栏 */
+margin-top:10px;
+}
+.column>:first-child{
+    font-size:25px;
+    margin-right:3px;
+    font-weight:bold;
+    display:inline-block;
+}
+.column>:nth-child(2){
+    margin-left:10px;
+    text-decoration:none;
+    display:inline-block;
+    background:#e9f0fa;
+    color:black ;
+    font-size:15px;
+    padding:3px;
+}
+.column+div{
+    margin-bottom:5px;
+}
+.column+div>span{
+    display:inline-block; 
+}
+.column>:nth-child(2){
+    display:inline-block;
+    margin-left:30px;
+    text-decoration:none;
+    color:#525540;
+}
+.column>:nth-child(2)
+.column>:nth-child(2):hover{
+    color:#f9b759;
+}
+.column3{
+    margin:8px 0px 10px 0px;
+}
+.column3>:first-child{
+    color:#f05b72;
+    font-style: italic
+}
+.column3>span{
+    margin:0 7px 0 7px;
+}
+.column3+div>:first-child{
+    color:#f05b72;
+}
+.main{
+    position: relative; 
+}
+.main>:first-child{
+    width:867px;
+}
+.main>:first-child>div{
+    background:#e9f0fa;
+    height:60px;
+    display:flex;
+    justify-content: space-around;
+    /* transition:5s; */
+    /* display: none; */
+}
+.main>:first-child>div>:first-child
+{
+    width:168px;
+    padding: 10px;
+}
+.main>:first-child>div>div{
+    width:140px;
+    text-align: center;
+    padding:20px 0px 0px 0px;
+    transition:1s;
+}
+/* 显示当前栏目 */
+
+.main>.left{
+    /* 地址栏下面图片最左边大图 */
+    width: 750px;
+    height:550px;
+    overflow: hidden;
+    z-index:10;
+}
+
+.middle{
+    /* 地址栏下面图片中间小轮播图 */
+    position: absolute;
+    left:765px;
+    top:0px;
+    width: 100px;
+    height:550px;
+    overflow: hidden;
+}
+.main>.middle::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.main>.middle>div>div>img{
+    /* 每张小图的div */
+    display:block;
+    width:100px;
+    height:71px;
+    margin:0px 0px 9px 0px;
+    overflow:hidden;
+}
+.main>.middle>.topprev,
+.main>.middle>.bottomprev{
+    /* 上下箭头外层div */
+        width:100px;
+        height:35px;
+        position:absolute;
+        background-color: rgba(0,0,0,0.2);      
+    }
+    .main>.middle>.topprev{
+        top:0px;
+    }
+    .main>.middle>.bottomprev{
+        top:516px;
+    }
+.main>.middle>.topprev>.top,
+.main>.middle>.bottomprev>.bottom{
+        margin:0;
+        width:22px;
+        height:22px;              
+}
+.main>.middle>.topprev>.top{
+    /* 上箭头 */
+    border-top:5px solid #eae5dcde;
+    border-left:5px solid #eae5dcde;
+    transform:rotate(45deg);
+    margin:10px auto 0;
+}
+.main>.middle>.bottomprev>.bottom{
+    /* 下箭头 */
+    border-right:5px solid #eae5dcde;
+    border-bottom:5px solid #eae5dcde;
+    transform:rotate(45deg);
+    margin:0 auto 10px;
+}
+.main>.middle>.topprev:hover{
+    background:rgba(0,0,0,0.3);
+    /* 当向上箭头鼠标悬停时改变背景颜色 */
+}
+.main>.middle>.bottomprev:hover{
+    /* 当向下箭头鼠标悬停时改变背景颜色 */
+    background:rgba(0,0,0,0.3);
+}
+
+.wrapper>.main>.reservation{
+    /* 右侧订房区域 */
+    position: absolute;
+    top:0px;
+    right:0px;
+    /* left:880px; */
+    width:320px;
+}
+.reservation::before{
+    content:"";
+    display:block;
+    clear: both;
+}
+.wrapper>.main>.reservation>div>.price>p:first-child{
+    display:block;
+    margin:15px 5px 5px 5px;
+    font-size:25px;
+    color:#ff5d51;
+    font-family:"微软雅黑";
+    font-weight:bold;
+}
+.wrapper>.main>.reservation>div>.price>p:last-child{
+    display:inline-block;
+    font-size:10px;
+    margin:0 5px 5px 5px;
+}
+.wrapper>.main>.reservation>div>.date{
+    /* 时间和确认订房放在一个区域 */
+    border:1px solid #e9f0fa;
+    width:320px;
+    height:160px;
+}
+.wrapper>.main>.reservation>div>.date>
+.getdate{
+    /* 获取时间的div */
+    margin:10px  0px 0px 0px; 
+}
+.wrapper>.main>.reservation>div>.date>
+.getdate>input{
+    /* 获取时间段input */
+    display: inline-block;
+    width:120px;
+    height:25px;
+}
+.wrapper>.main>.reservation>div>.date>
+.total{
+    /* 总价 */
+    margin:10px  0px 0px 25px; 
+}
+.wrapper>.main>.reservation>div>.date>
+.total>span{
+    /* 金额显示区域 */
+    font-size:17px;
+}
+.wrapper>.main>.reservation>div>.date>
+.total>a{
+    /* 提醒用户下载APP连接区域 */
+    text-decoration: none;
+    display: inline-block;
+    margin-left:5px;
+    font-size:15px;
+    
+}
+.wrapper>.main>.reservation>div>.date>
+.button{
+    /* 提交a标签外面的div */
+    margin:15px 10px 10px 0px;
+    background:#2b78f4;
+    width: 319px;
+    height:40px;
+    text-align: center;
+    padding-top:10px;
+    border-radius:5px;
+}
+.wrapper>.main>.reservation>div>.date>
+.button>a{
+    /* 提交a标签 */
+    text-decoration:none;
+    color: white;
+    font-size:18px;
+    font-weight:bold;   
+}
+.wrapper>.main>.reservation>div>
+.calendar{
+    margin:33px 0px 10px 0px;
+    border:1px solid #e9f0fa;
+}
+.wrapper>.main>.reservation>div>
+.calendar>:nth-child(1){
+    /* 房间日历div */
+    height:100%;
+    width:319px;
+    background: #f5f5f5;
+    padding: 0 0 0 0;
+    margin:15px 0px 0px 0px;
+}
+.wrapper>.main>.reservation>div>
+.calendar>div>ul{
+    /* 房间日历详细信息*/
+    list-style:none;
+    display: inline-block; 
+    margin:0;
+    width:52px;
+    border-right:1px solid #e9f0fa;
+    text-align:center;
+    text-align: center;
+}
+.wrapper>.main>.reservation>div>
+.calendar>:nth-child(2){
+    /*详细房间信息按钮的div*/
+    width:320px;
+    padding:10px 0 10px 0 ;
+    text-align: center;
+}
+.wrapper>.main>.reservation>div>
+.calendar>:nth-child(2)>a{
+    /*详细房间信息的A标签*/
+    text-decoration:none;    
+}
+.wrapper>.main>.reservation>div>
+.intro{
+    /* 商家窗口的大div */
+    margin-top:30px;
+    width:318px;
+    border:1px solid #e9f0fa;
+    position: relative;
+}
+.wrapper>.main>.reservation>div>
+.intro>.portrait{
+    /* 商家头像 */
+    width:80px;
+    height:80px;
+    margin: 15px 0px 0px 25px;
+}
+.intro i{
+    color:#f60;
+}
+.wrapper>.main>.reservation>div>
+.intro>:nth-child(2){
+    /* 联系商家的a标签的div */
+    width:150px;
+    height:80px;
+    position: absolute;
+    left:165px;
+    top: 0;
+}
+.wrapper>.main>.reservation>div>
+.intro>:nth-child(2)>div{
+    /* 两个a标签个套一个div */
+    width:100px;
+    height:25px;
+    border:1px solid #2b78f4;
+    text-align: center;
+    margin:20px 0px 0px 0px;
+    border-radius:5px;
+}
+.wrapper>.main>.reservation>div>
+.intro>:nth-child(2)>div>a{
+    /* 联系商家的A标签 */
+    text-decoration: none;
+}
+.wrapper>.main>.reservation>div>
+.intro>:nth-child(2)::before{
+    content:"";display:block;clear:both;
+}
+.wrapper>.main>.reservation>div>
+.intro>:nth-child(3){
+    /* 商家信用信息的div */
+    margin: 7px 0px 0px 85px;
+}
+.introduce{
+    margin:10px 0 10px 0;
+    padding-top:15px;
+    width:867px;
+    height:100px;
+    display: flex;
+    justify-content:space-around;
+}
+.introduce>div>i{
+    font-size:50px;
+}
+.introduce>div>span{
+    font-size:30px;
+}
+.housedesc,
+.housedesc2{
+    background: #f9f9f9;
+    width:867px;
+    border-bottom:1px solid #b3b6b9; 
+    display: flex;
+    justify-content: space-around;
+    direction:row;
+}
+.housedesc>:nth-child(2),
+.housedesc2>:nth-child(2){
+    margin:30px 10px 10px 50px;
+    color: #959ea7; 
+}
+.housedesc>:nth-child(2)>i,
+.housedesc2>:nth-child(2)>i{
+    font-size:80px;
+}
+.housedesc>:nth-child(2)>span,
+.housedesc2>:nth-child(2)>span
+{
+    display:block;
+    margin:0;
+}
+.housedesc>:nth-child(3){
+    margin:30px 30px 30px 50px;
+     padding:10px 30px 0px 0px;
+}
+.housedesc2>:nth-child(3){
+    width:600px;
+    display: flex;
+    justify-content: flex-start;
+    margin:10px 60px 0px 60px;
+}
+.housedesc2>:nth-child(3) li{
+    list-style:none;
+    margin:10px 100px 5px 0px;
+}
+.map{
+    width:867px;
+    overflow: hidden;
+}
+.deposit{
+    width:867px;
+    border-bottom:1px solid #b3b6b9;
+}
+.deposit>:first-child{
+    font-size:25px;    
+}
+.deposit>p{
+    display:block;
+    margin:10px 10px 10px 100px;
+}
+.maylove{
+    position: relative;
+    width:867px;
+}
+.maylove>div{
+    display:flex;
+    justify-content: space-between;
+}
+.maylove>:first-child{
+    margin:10px 10px 0px 12px;
+    font-size:20px;
+}
+.maylove>:nth-child(2){
+    position: relative;
+}
+.maylove>div>div{
+    width:210px;
+    height:135px;
+    overflow: hidden;
+    position: relative;
+}
+.maylove>:nth-child(2),
+.maylove>:nth-child(3)
+{
+    position: absolute;
+    font-weight:bold;
+    top:70px;
+    z-index:999;
+    background: #7369696b;
+    border-radius:5px;
+}
+.maylove>:nth-child(2){
+
+    left:2px;
+}
+.maylove>:nth-child(3){
+    right:2px;
+}
+.maylove>:nth-child(2)>span,
+.maylove>:nth-child(3)>span{
+    font-size:25px;
+    height:40px;
+    padding:15px 0px 0px 0px;
+    color: #e4e0e0e0;
+}
+.maylove>:nth-child(2)>span:hover,
+.maylove>:nth-child(3)>span:hover{
+    background:#7369698f;
+    border-radius:5px;
+}
+.maylove>div>div>p{
+    display:block;
+    position:absolute;
+    width:70px;
+    left:70px;
+    height:30px;
+    background:#7369696b;
+    color:#f44336c7;
+    font-size:25px;
+    top:105px;
+    text-align: center;
+}
+
+
+
+
+
+
