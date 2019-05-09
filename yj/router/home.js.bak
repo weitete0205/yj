@@ -1,0 +1,21 @@
+const express=require("express");
+const router=express.Router();
+const pool=require("../pool");
+router.get("/",(req,res)=>{
+    var sql=`select img,city from yj_home`;
+    var sql2=`select * from yj_home_img `;
+    var result3=[];
+    pool.query(sql,(err,result)=>{
+        if(err)console.log(err)
+        result3.push(result)
+        pool.query(sql2,(err,result2)=>{
+            if(err)console.log(err);
+            result3.push(result2)
+            console.log(result3)
+            res.send(result3);
+        })
+    })
+
+})
+
+module.exports=router;
