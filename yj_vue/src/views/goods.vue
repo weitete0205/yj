@@ -360,7 +360,9 @@ export default {
         },
         chaxun2(){
             //当页面开始加载时执行ajax请求
-        this.axios.get("http://localhost:3000/goods",{
+            //从共享数据vuex中获取url
+         var url=this.$store.state.url
+        this.axios.get(url+"goods",{
             params:{ rid:this.rid,pno:this.pno, },
         }).then(res=>{
             this.list1=res.data[1];
@@ -544,7 +546,9 @@ export default {
                 this.max=['*','*']
             } 
             //将选项框选定的价格放到min
-             this.axios.get("http://localhost:3000/goods/chaxun",
+            //从共享数据vuex中获取url
+            var url=this.$store.state.url
+             this.axios.get(url+"goods/chaxun",
                 {params:{min:this.min,max:this.max}
             }).then(res=>{
                 this.list=[];

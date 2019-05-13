@@ -465,7 +465,9 @@ export default {
       };
     },
     created(){
-        this.axios.get("http://localhost:3000/Details",{
+           //从共享数据vuex中获取url
+         var url=this.$store.state.url
+        this.axios.get(url+"Details",{
             params:{ lid:this.lid },
         }).then(res=>{
             //将获取到的商品数据放到pmn
@@ -568,7 +570,9 @@ export default {
         dianzan(e){
             var a=e.target.dataset.like;
             var lid=e.target.dataset.lid;
-            this.axios.get("http://127.0.0.1:3000/Details/dianzan",
+               //从共享数据vuex中获取url
+         var url=this.$store.state.url
+            this.axios.get(url+"Details/dianzan",
             {params:{lid:lid,like:a}
             }).then(res=>{
                 var code=res.data.code;

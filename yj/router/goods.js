@@ -70,6 +70,6 @@ var max=req.query.max;
 //         if(err)console.log(err)
 //         res.send(result)
 //         console.log(result)    
-//     })
+//    () })
 // });
 module.exports=router;

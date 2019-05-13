@@ -139,15 +139,18 @@
       </div>
     </div>
   </div>
-  <my-tail></my-tail>
+  <my-tail :lx="lx" @zichuanfu='zichuanfu2'></my-tail>
+  <!-- 给子组件绑定与点击子组件来的函数相同的函数 -->
 </div>
 </template>
 <script>
 import myTail from "@/components/tail.vue"
 import myHeader from "@/components/header.vue"
+import { constants } from 'fs';
 export default {
   data(){
     return{
+      lx:'这是首页',
       tuijian:[],
       tuijianstyle2:{
         background:'',
@@ -215,7 +218,9 @@ export default {
     }
   },
   created(){
-    this.axios.get("http://127.0.0.1:3000/home")
+    //从共享数据vuex中获取url
+    var url=this.$store.state.url
+    this.axios.get(url+"home")
     .then(res=>{
       //将轮播图存贮在轮播图的数组里
       this.lunbotu=res.data[1];
@@ -235,6 +240,9 @@ export default {
     
   },
   methods:{
+    zichuanfu2(e){
+      console.log(e)
+    },
     //当搜索框获得焦点时候
         search(){
             //控制推荐部分为显示推荐按钮修改背景色
@@ -347,7 +355,9 @@ export default {
         },
         //当点击搜索键的时候
         search1(){
-          this.axios.get("http://127.0.0.1:3000/home/search",{
+          //从共享数据vuex中获取url
+         var url=this.$store.state.url
+          this.axios.get(url+"home/search",{
             params:{tuijian:this.tuijian}
           }).then(res=>{
             var rid=res.data[0].rid

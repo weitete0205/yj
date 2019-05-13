@@ -25,12 +25,12 @@
         <router-link to="">开展体验</router-link>
         <router-link to="">open Homes</router-link>
       </div>
-      <div class="yujian">
+      <div class="yujian" @click="zichuanfu1">
         <span class="iconfont">&#xe71d;</span>
         <span class="iconfont">&#xe61d;</span>
         <router-link to="">条款</router-link>
         <router-link to="">隐私政策</router-link>
-        <router-link to="">网站地图</router-link>
+        <router-link to="" >网站地图</router-link>
       </div>
     </div>
     <div>
@@ -41,10 +41,20 @@
 <script>
 // import Vue from 'vue'
 export default {
+  props:['lx'],
 data(){
-  return{}
-
-}
+  return{
+    a:'99'
+  }
+},
+created(){
+},
+methods:{
+  zichuanfu1(){
+    // 当鼠标点击zichuanfu1的事件的时候执行传值
+    this.$emit('zichuanfu',this.a)
+  }
+},
 }
 </script>
 <style scoped>

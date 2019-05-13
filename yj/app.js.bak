@@ -9,6 +9,7 @@ const index=require("./router/index")
 const goods=require("./router/goods")
 const login=require("./router/login")
 const home=require("./router/home")
+const reg=require("./router/reg")
 var app = express();
 var server = app.listen(3000);
 app.use(session({
@@ -19,6 +20,7 @@ app.use(session({
 app.use(cors({
    "origin":["http://localhost:8080","http://192.168.1.101:8080/",
    "http://localhost:8081","http://192.168.1.101:8081/",
+	   "http://192.168.1.110:8080"
 ],
    credentials:true
 }));
@@ -36,3 +38,4 @@ app.use("/goods",goods);
 app.use("/login",login);
 //使用首页路由器来管理路由
 app.use("/home",home);
+//使用注册路由器来管理路由

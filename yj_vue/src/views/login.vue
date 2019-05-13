@@ -64,6 +64,7 @@
 </template>
 <script>
 import myTail from "@/components/tail.vue";
+// import Store from '../store';
 export default {
     name: 'SIdentify',
     data() {
@@ -76,14 +77,6 @@ export default {
             phone1:{
                 display:""
             },
-            //验证账号是否为手机号
-            res1:/^1[3-7][0-9]{9}$/,
-            //验证账号是否为邮箱
-            res2:/^\/w+([-+.]w+)*@w+([-.]w+)*.w...$/,
-            //验证账号是是否为账号
-            res3:/^[a-zA-Z0-9]{6,10}$/,
-            //验证密码是否符合合适的正则
-            res4:/^[a-zA-Z0-9]{8,12}$/,
             //存放用户普通登录输入的账号
             zhanghao:[],
             //存放用户普通登录输入的密码
@@ -120,16 +113,22 @@ export default {
             this.putong1.display="none"    
         },
         denglu1(){
+            // 从共享数据vuex中拿到正则表达式
+            var res1=this.$store.state.res1  //手机号的正则表达式
+            var res2=this.$store.state.res2     //验证邮箱的正则表达式
+            var res3=this.$store.state.res3    //验证账号的正则表达式     
+            var res4=this.$store.state.res4    //验证密码的正则表达式
             //如果账号正则验证通过就执行密码的正则验证
-            console.log(1)
-            if(this.res1.test(this.zhanghao)==true||this.res2.test(this.zhanghao)==true||
-            this.res3.test(this.zhanghao)==true){
+            if(res1.test(this.zhanghao)==true||res2.test(this.zhanghao)==true||
+            res3.test(this.zhanghao)==true){
                 //如果密码格式正确
-                if(this.res4.test(this.mima)==true){
+                if(res4.test(this.mima)==true){
                     //就将提示账号提示框和密码提示框隐藏
                     this.mima1.display=""
                     this.zhanghao1.display=""
-                    this.axios.get("http://127.0.0.1:3000/login",
+                    // 从共享数据vuex中拿到url
+                    var url=this.$store.state.url
+                    this.axios.get(url+"login",
                     {params:{zhanghao:this.zhanghao,mima:this.mima}}
                     ).then(res=>{
                         if(res.data.code==-1){  
@@ -156,7 +155,6 @@ export default {
         },
     },
     watch:{},
-    mounteds:{},
     components:{myTail}
 }
 </script>

@@ -9,6 +9,7 @@ const index=require("./router/index")
 const goods=require("./router/goods")
 const login=require("./router/login")
 const home=require("./router/home")
+const reg=require("./router/reg")
 var app = express();
 var server = app.listen(3000);
 app.use(session({
@@ -37,3 +38,5 @@ app.use("/goods",goods);
 app.use("/login",login);
 //使用首页路由器来管理路由
 app.use("/home",home);
+//使用注册路由器来管理路由
+app.use("/reg",reg)
