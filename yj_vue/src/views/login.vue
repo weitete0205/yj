@@ -49,7 +49,7 @@
                           <span class="iconfont">&#xe62a;</span>
                       </div>
                       <span>还不是遇见网会员?</span>
-                      <a href="javascript:;">点击去注册>></a>
+                      <router-link :to="`/reg`">现在就去注册></router-link>
                       <div>
                           <img src="../img/erweima.jpg" >
                           <span class="iconfont">&#xe727;<a href="javascropt:;">Android</a></span>
@@ -67,6 +67,7 @@ import myTail from "@/components/tail.vue";
 // import Store from '../store';
 export default {
     name: 'SIdentify',
+    props:['uname'],
     data() {
         return{
             //普通用户登录的样式
@@ -94,6 +95,10 @@ export default {
                 display:''
             },
         }
+    },
+    created(){
+        // 将注册页面传过来的参数显示在账号框内
+        this.zhanghao=this.uname
     },
     methods:{
                 //默认选中普通登录
@@ -148,6 +153,7 @@ export default {
             }
         },
         tiaozhuan(){
+            // this.$store.commit('getname',this.zhanghao)
             //当点击确定按钮后跳转回
             this.$router.push(
                 {path:'home',

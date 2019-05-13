@@ -14,6 +14,7 @@ export default new Router({
     // {path:'/Index',component:Index},
     {path:"/details/:lid", component:Details,props:true},
     {path:"/login",component:login,},
+    {path:'/login/:uname',component:login,props:true},
     {path:"/goods/:rid",component:Goods,props:true},
     {path:"/home",component:home},
     {path:'/reg',component:reg},

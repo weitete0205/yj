@@ -7,7 +7,7 @@
       </div>
       <div class="you">
         <router-link :to="`/login`">登录</router-link>
-        <router-link to="">注册</router-link>
+        <router-link :to="`/reg`">注册</router-link>
         <p>租房指南</p>
         <p @mouseenter="erweima1" @mouseleave="erweima2">手机APP</p>
       </div>
