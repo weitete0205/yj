@@ -18,8 +18,10 @@ app.use(session({
    saveUninitialized:true //保存初始化的数据
 }))
 app.use(cors({
-   "origin":["http://localhost:8080","http://192.168.1.101:8080/",
-   "http://localhost:8081","http://192.168.1.103:8080/",
+   "origin":["http://106.13.120.8:80/",
+   "http://127.16.0.4:80",
+   "http://localhost:8080/",
+   "http://106.13.120.8:3000/",
 	   "http://192.168.1.110:8080"
 ],
    credentials:true

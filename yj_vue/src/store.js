@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
-    url:"http://127.0.0.1:3000/",
+    url:"http://106.13.120.8:3000/",
     //验证账号是否为手机号
     res1:/^1[3-7][0-9]{9}$/,
     //验证账号是否为邮箱
