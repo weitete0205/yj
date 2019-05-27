@@ -3,12 +3,12 @@
   <my-header></my-header>
   <el-carousel :interval="4000" type="card" height="400px" >
     <el-carousel-item v-for="i of lunbotu" :key="i.id" height="400px" >
-       <img  height="400px" width="100%" :src="i.img" :data-lid="i.lid" @click="lunbogoods">
+       <img  height="400px" width="100%" v-lazy="i.img" :data-lid="i.lid" @click="lunbogoods">
     </el-carousel-item> 
   </el-carousel>
   <!-- <el-carousel :interval="5000" arrow="always" height="500px">
     <el-carousel-item v-for="i of lunbotu" :key="i.id" height="500px" >
-       <img  height="500px" width="100%" :src="i.img" :data-lid="i.lid" @click="lunbogoods">
+       <img  height="500px" width="100%" v-lazy="i.img" :data-lid="i.lid" @click="lunbogoods">
     </el-carousel-item>
   </el-carousel>  -->
   <div class="goods">
@@ -41,7 +41,7 @@
           <div :style="zuoyou">
               <div v-for="i of remenimg" :key="i.id"
              @mouseenter="fangda" @mouseleave="fangda3">
-              <router-link :to="`/goods/${i.rid}`"><img :src="i.img" alt=""></router-link>
+              <router-link :to="`/goods/${i.rid}`"><img v-lazy="i.img" alt=""></router-link>
               <span v-text="i.city"></span>
             </div>
           </div>
@@ -58,7 +58,7 @@
           <div >
             <div :style="renqituijian2">
               <div v-for="i of renqituijian " :key="i.id" @mouseenter="fangda" @mouseleave="fangda3">
-                <router-link :to="`/details/${i.lid}`" ><img :src="i.img" alt=""></router-link>
+                <router-link :to="`/details/${i.lid}`" ><img v-lazy="i.img" alt=""></router-link>
                 <p><span v-text="i.name"></span><span >{{`￥`}}{{i.price}}</span></p>
               </div>
             </div>
@@ -82,14 +82,14 @@
           <div class="haitan1" >
             <div v-for="i of haitan1" :key="i.id"
              @mouseenter="fangda4" @mouseleave="fangda5">
-              <img :src="i.img" alt="">
+              <img v-lazy="i.img" alt="">
               <span>{{i.city}}</span>
             </div>
           </div>
           <div class="haitan2">
             <div v-for="i of haitan2" :key="i.id" 
             @mouseenter="fangda4" @mouseleave="fangda5">
-              <img :src="i.img" alt="">
+              <img v-lazy="i.img" alt="">
               <span>{{i.city}}</span>
             </div>
           </div>
@@ -98,14 +98,14 @@
             <div class="haitan1">
             <div v-for="i of ouzhou1" :key="i.id"
              @mouseenter="fangda4" @mouseleave="fangda5">
-              <img :src="i.img">
+              <img v-lazy="i.img">
               <span>{{i.city}}</span>
             </div>
           </div>
           <div class="haitan2">
             <div v-for="i of ouzhou2" :key="i.id"
              @mouseenter="fangda4" @mouseleave="fangda5">
-              <img :src="i.img" alt="">
+              <img v-lazy="i.img" alt="">
               <span>{{i.city}}</span>
             </div>
           </div>

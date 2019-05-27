@@ -180,7 +180,7 @@ export default {
       },
       tiaozhuan(){
         this.$router.push({
-          path:`login/${this.phone1}`,
+          path:'login',
           components:'login'})
       }
     } ,

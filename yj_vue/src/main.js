@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import Vuelazyload from 'vue-lazyload'
 //等效于node中的const axios=require("axios")
 // import tail from './components/tail'
 import {Button,Select,DatePicker,Dialog,Checkbox,CheckboxGroup,Radio,RadioGroup
@@ -21,6 +22,9 @@ Vue.component(Radio.name,Radio);
 Vue.component(RadioGroup.name,RadioGroup);
 Vue.component(Carousel.name,Carousel);
 Vue.component(CarouselItem.name,CarouselItem);
+// 图片懒加载功能
+Vue.use(Vuelazyload)
+
 //注册自定义组件
 // Vue.component(tail.name,tail)
 Vue.config.productionTip = false

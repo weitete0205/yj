@@ -11,7 +11,7 @@ router.get("/",(req,res)=>{
             req.session.uid=result[0].uid
             res.send({code:1,msg:'登录成功'})
         }else{
-            res.send({code:-1,msg:'登录失败'}) 
+            res.send({code:-1,uid=result[0].uid,msg:'登录失败'}) 
         }
     })
 })

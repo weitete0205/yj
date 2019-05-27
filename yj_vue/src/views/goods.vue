@@ -29,7 +29,7 @@
                     <el-button type="primary">搜索</el-button>
                 </form>
             </div>
-            <div class="tuijian" :style="tuijianstyle" id="a" @click="search2" @mouseleave="leave" >
+            <div class="tuijian" :v-show="tuijianstyle" id="a" @click="search2" v-if="tuijianstyle" >
                     <div>
                     <div :style="tuijianstyle2" @mouseenter="tuijian1">
                         <router-link to='' >推荐</router-link>
@@ -45,21 +45,21 @@
                     <p>热门商圈</p>
                     <div>
                         <!-- <span  v-text="i.area" @click="jingdian"  v-for="i of list" :key="i.id"></span>  -->
-                         <span @click="jingdian" >海棠湾</span>
-                        <span @click="jingdian" >蜈洲支岛</span>
-                        <span @click="jingdian">大东海</span>
-                        <span @click="jingdian" >七仙山</span>
-                        <span @click="jingdian" >南天海泉</span>
-                        <span @click="jingdian" >香水湾</span> 
+                         <span to='' >海棠湾</span>
+                        <span to='' >蜈洲支岛</span>
+                        <span to=''>大东海</span>
+                        <span to='' >七仙山</span>
+                        <span  to='' >南天海泉</span>
+                        <span to='' >香水湾</span> 
                     </div>
                     <p>热门景点</p>
                     <div>
                         <!-- <span @click="jingdian" v-text="i.jingdian" v-for="i of list" :key="i.id" ></span> -->
-                        <router-link to='' @click="jingdian" >南天门热带植物园 </router-link>
-                        <router-link to='' @click="jingdian" >海棠广场 </router-link>
-                        <router-link to='' @click="jingdian">神州第一泉</router-link>
-                        <router-link to='' @click="jingdian" > 长寿谷</router-link>
-                        <router-link to='' @click="jingdian" > 三亚游艇租赁出海俱乐部</router-link>
+                        <router-link to='' >南天门热带植物园 </router-link>
+                        <router-link to='' >海棠广场 </router-link>
+                        <router-link to=''>神州第一泉</router-link>
+                        <router-link to='' > 长寿谷</router-link>
+                        <router-link to='' > 三亚游艇租赁出海俱乐部</router-link>
                     </div>
                 </div>
                 <div class="guonei" :style="guoneistyle2">
@@ -201,7 +201,7 @@
         <div class="xiangqing"  v-if="list" :style="xaingqing1">
             <div class="goods"  v-for="i of list" :key="i.id">
                 <div @mouseenter="border" @mouseleave="border1">
-                    <router-link :to="`/details/${i.lid}`"><img :src="i.md_img"></router-link>
+                    <router-link :to="`/details/${i.lid}`"><img v-lazy="i.md_img"></router-link>
                 </div>
                 <div >
                      <router-link :to="`/details/${i.lid}`">{{i.name}}</router-link>
@@ -210,7 +210,7 @@
                     <p>{{i.area}}</p>
                 </div> 
                 <div  :style="address">
-                    <img :src="i.address_img" alt="">
+                    <img v-lazy="i.address_img" alt="">
                 </div>
             </div>
         </div>
@@ -268,9 +268,7 @@ export default {
             //绑定搜索框的内容
             tuijian:'',
             //整个大搜索推荐框是否显示
-            tuijianstyle:{
-                display:'none'
-            },
+            tuijianstyle:false,
             //推荐按钮的样式
             tuijianstyle2:{
                 background:'',
@@ -354,7 +352,7 @@ export default {
         //当搜索框获得焦点时候
         search(){
             //控制推荐部分为显示推荐按钮修改背景色
-            this.tuijianstyle.display='block'
+            this.tuijianstyle=true
             this.tuijianstyle2.background="#fff"
             //并将其他两个按钮背景修改
             this.guoneistyle.background="#e9f0fa"
@@ -673,10 +671,6 @@ export default {
         },
         border1(e){
             e.path[0].style.transform=""
-        },
-        leave(){
-            // 当鼠标离开当前区域时当前div隐藏
-          this.tuijianstyle.display="none"
         }
     },
     watch:{
@@ -771,6 +765,7 @@ export default {
 /* 搜索推荐 */
 .tuijian {
     width:399.999px;
+    /* display: none; */
     position: relative;
 }
 .tuijian>:first-child>div{

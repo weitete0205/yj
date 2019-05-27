@@ -71,11 +71,11 @@
                 <!-- 中间部分小图 -->
                 <div :style="img_top">
                     <div >
-                        <img v-for="i in img" :src="i.sm_img" :data-id="i.lg_img"  :key="i.id" @mouseenter="sm_img"
+                        <img v-for="i in img" v-lazy="i.sm_img" :data-id="i.lg_img"  :key="i.id" @mouseenter="sm_img"
                          @mouseleave="border1">
                     </div>
                     <div >
-                        <img v-for="i in img" :src="i.sm_img" :data-id="i.lg_img"  :key="i.id" @mouseenter="sm_img"
+                        <img v-for="i in img" v-lazy="i.sm_img" :data-id="i.lg_img"  :key="i.id" @mouseenter="sm_img"
                         @mouseleave="border1">
                     </div>
                 </div>
@@ -158,7 +158,7 @@
                         <!-- /* 商家窗口的大div */ -->
                     <div class="portrait">
                         <!-- 商家头像 -->
-                        <img v-if="pmn[0]" :src="img[0].avater">
+                        <img v-if="pmn[0]" v-lazy="img[0].avater">
                     </div>
                     <div>
                         <!-- 联系商家按钮 -->
@@ -322,7 +322,7 @@
         </div>
         <div class="map" v-if="img[0]">
             <router >
-            <img :src="img[0].map">
+            <img v-lazy="img[0].map">
             </router>
         </div>
         <div class="deposit">
@@ -339,7 +339,7 @@
         </div>
         <div class="deposit">
             <p class="iconfont">&#xe8fe;退订须知</p>
-            <img v-if="img[0]" :src="img[0].prompt" alt="">
+            <img v-if="img[0]" v-lazy="img[0].prompt" alt="">
             <p>根据房东设置的交易规则未早于入住日14：00 1天退订视为有责取消 
                 ，应扣除取消订单时间点后 1天订金作为违约金，剩余钱款将被原路退还</p>
         </div>
@@ -354,19 +354,19 @@
             <div>
                 <div>
                 <p>¥:298</p>
-                <img v-if="img[0]" :src="img[0].bottom_img" alt="">
+                <img v-if="img[0]" v-lazy="img[0].bottom_img" alt="">
                 </div>
                 <div>
                 <p>¥:258</p>
-                <img v-if="img[0]" :src="img[1].bottom_img" alt="">
+                <img v-if="img[0]" v-lazy="img[1].bottom_img" alt="">
                 </div>
                 <div>
                 <p>¥:198</p>
-                <img v-if="img[0]" :src="img[2].bottom_img" alt="">
+                <img v-if="img[0]" v-lazy="img[2].bottom_img" alt="">
                 </div>
                 <div>             
                 <p>¥:338</p>    
-                <img v-if="img[0]" :src="img[3].bottom_img" alt="">
+                <img v-if="img[0]" v-lazy="img[3].bottom_img" alt="">
                 </div>
             </div>
         </div>
